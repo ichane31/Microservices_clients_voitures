@@ -20,12 +20,19 @@ Le service des clients gère toutes les opérations liées aux clients de l'entr
 #### Endpoint
 
 - **GET /clients:** Récupère la liste de tous les clients.
+  
 ![Liste des clients](./images/liste_clients.png)
+
 - **GET /clients/{id}:** Récupère les détails d'un client spécifique.
+  
 ![Client par id](./images/client_byID.png)
+
 - **POST /clients:** Crée un nouveau client.
+  
 - **PUT /clients/{id}:** Met à jour les informations d'un client existant.
+  
 ![Modifier un client](./images/modifier_client2.png)
+
 
 ### 2. Service des Voitures
 
@@ -35,8 +42,13 @@ Le service des voitures est responsable de toutes les opérations liées aux voi
 
 - **GET /voitures:** Récupère la liste de toutes les voitures.
 ![Liste des voiture](./images/liste_voiture.png)
+
+- **GET /voitures/client/{id_client}:** Récupère la liste de toutes les voitures par client.
+![Liste des voiture](./images/liste_voiture.png)
+
 - **GET /voitures/{id}:** Récupère les détails d'une voiture spécifique.
 ![Voiture par Id](./images/voiturebyID.png)
+
 - **POST /voitures:** Ajoute une nouvelle voiture.
 - **PUT /voitures/{id}:** Met à jour les informations d'une voiture existante.
 ![Modifier voiture](./images/modifier_voiture.png)
@@ -60,6 +72,7 @@ Les services clients et voitures sont accessibles respectivement à [http://loca
 ![Service clients](./images/service_clients.png)
 
 et [http://localhost:8888/SERVICE-VOITURE/voitures](http://localhost:8888/SERVICE-VOITURE/voitures).
+
 ![Service voitures](./images/service_voiture.png)
 
 
