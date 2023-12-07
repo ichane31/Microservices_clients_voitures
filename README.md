@@ -13,7 +13,7 @@ Assurez-vous d'avoir installé les outils suivants avant de commencer :
 
 ## Microservices inclus
 
-### 1. Service des Clients
+### 1. Service des Clients (port 8088 )
 
 Le service des clients gère toutes les opérations liées aux clients de l'entreprise, y compris la création, la mise à jour, la suppression et la récupération des informations clients.
 
@@ -34,23 +34,27 @@ Le service des clients gère toutes les opérations liées aux clients de l'entr
 ![Modifier un client](./images/modifier_client2.png)
 
 
-### 2. Service des Voitures
+### 2. Service des Voitures (port 8089 )
 
 Le service des voitures est responsable de toutes les opérations liées aux voitures, y compris l'ajout, la mise à jour, la suppression et la récupération des informations sur les voitures.
 
 #### Endpoint
 
 - **GET /voitures:** Récupère la liste de toutes les voitures.
+  
 ![Liste des voiture](./images/liste_voiture.png)
 
 - **GET /voitures/client/{id_client}:** Récupère la liste de toutes les voitures par client.
-![Liste des voiture](./images/liste_voiture.png)
+  
+![Liste des voiture](./images/liste_voiture_par_client.png)
 
 - **GET /voitures/{id}:** Récupère les détails d'une voiture spécifique.
+  
 ![Voiture par Id](./images/voiturebyID.png)
 
 - **POST /voitures:** Ajoute une nouvelle voiture.
 - **PUT /voitures/{id}:** Met à jour les informations d'une voiture existante.
+  
 ![Modifier voiture](./images/modifier_voiture.png)
 
 ## Serveur Eureka
