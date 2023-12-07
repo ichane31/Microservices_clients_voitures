@@ -94,5 +94,37 @@ public class VoitureController {
         }
     }
 
+    @PutMapping("/voitures/{Id}")
+    public ResponseEntity<Object> modifierVoiture(@PathVariable Long Id, @RequestBody Voiture updatedVoiture) {
+        try {
+            Voiture existingVoiture = voitureRepository.findById(Id)
+                    .orElseThrow(() -> new Exception("Voiture not found with ID: " + Id));
+
+            // Update only the non-null fields from the request body
+            if (updatedVoiture.getMatricule() != null && !updatedVoiture.getMatricule().isEmpty()) {
+                existingVoiture.setMatricule(updatedVoiture.getMatricule());
+            }
+
+            if (updatedVoiture.getMarque() != null && !updatedVoiture.getMarque().isEmpty()) {
+                existingVoiture.setMarque(updatedVoiture.getMarque());
+            }
+
+            if (updatedVoiture.getModel() != null && !updatedVoiture.getModel().isEmpty()) {
+                existingVoiture.setModel(updatedVoiture.getModel());
+            }
+
+
+            // Save the updated Voiture
+                Voiture savedVoiture = voitureRepository.save(existingVoiture);
+
+                return ResponseEntity.ok(savedVoiture);
+
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error updating voiture: " + e.getMessage());
+        }
+    }
+
+
 
 }

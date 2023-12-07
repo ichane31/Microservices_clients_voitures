@@ -44,4 +44,34 @@ public class ClientController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @PutMapping("/client/{id}")
+    public ResponseEntity<Client> modifierClient(@PathVariable Long id, @RequestBody Client updatedClient) {
+        Optional<Client> optionalClient = clientRepository.findById(id);
+
+        if (optionalClient.isPresent()) {
+            Client existingClient = optionalClient.get();
+
+            // Update the existing Client with the new details
+            if (updatedClient.getNom() != null) {
+                existingClient.setNom(updatedClient.getNom());
+            }
+
+            if (updatedClient.getPrenom() != null ) {
+                existingClient.setPrenom(updatedClient.getPrenom());
+            }
+
+            if (updatedClient.getAge() != 0) {
+                existingClient.setAge(updatedClient.getAge());
+            }
+
+            // Save the updated Client
+            Client savedClient = clientRepository.save(existingClient);
+
+            return new ResponseEntity<>(savedClient, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+
 }
