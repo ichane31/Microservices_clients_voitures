@@ -20,9 +20,12 @@ Le service des clients gère toutes les opérations liées aux clients de l'entr
 #### Endpoint
 
 - **GET /clients:** Récupère la liste de tous les clients.
+![Liste des clients](./images/liste_clients.png)
 - **GET /clients/{id}:** Récupère les détails d'un client spécifique.
+![Client par id](./images/client_byID.png)
 - **POST /clients:** Crée un nouveau client.
 - **PUT /clients/{id}:** Met à jour les informations d'un client existant.
+![Modifier un client](./images/modifier_client2.png)
 
 ### 2. Service des Voitures
 
@@ -31,9 +34,12 @@ Le service des voitures est responsable de toutes les opérations liées aux voi
 #### Endpoint
 
 - **GET /voitures:** Récupère la liste de toutes les voitures.
+![Liste des voiture](./images/liste_voiture.png)
 - **GET /voitures/{id}:** Récupère les détails d'une voiture spécifique.
+![Voiture par Id](./images/voiturebyID.png)
 - **POST /voitures:** Ajoute une nouvelle voiture.
 - **PUT /voitures/{id}:** Met à jour les informations d'une voiture existante.
+![Modifier voiture](./images/modifier_voiture.png)
 
 ## Serveur Eureka
 
@@ -42,12 +48,20 @@ Le serveur Eureka est utilisé comme registre des services pour permettre à cha
 ### Accès à Eureka Dashboard
 
 [http://localhost:8761](http://localhost:8761)
+![Serveur eureka](./images/eureka.png)
+
 
 ## Gateway
 
 La Gateway agit comme un point d'entrée central pour tous les microservices, gérant la gestion des routes, l'authentification et l'autorisation. Une fois que tous les services sont démarrés, vous pouvez accéder à la gateway à l'URL [http://localhost:8888](http://localhost:8888) pour interagir avec les microservices.
 
-Les services clients et voitures sont accessibles respectivement à [http://localhost:8888/SERVICE-CLIENT/clients](http://localhost:8888/SERVICE-CLIENT/clients) et [http://localhost:8080/car-service](http://localhost:8080/car-service).
+Les services clients et voitures sont accessibles respectivement à [http://localhost:8888/SERVICE-CLIENT/clients](http://localhost:8888/SERVICE-CLIENT/clients)
+
+![Service clients](./images/service_clients.png)
+
+et [http://localhost:8888/SERVICE-VOITURE/voitures](http://localhost:8888/SERVICE-VOITURE/voitures).
+![Service voitures](./images/service_voiture.png)
+
 
 ## Configuration
 
@@ -57,4 +71,8 @@ Chaque microservice a son propre fichier de configuration qui doit être personn
 
 - **Base de données:** Chaque microservice utilise sa propre base de données. Assurez-vous de configurer les connexions de base de données dans les fichiers de configuration.
 Dans ce projet on utilise MySQL vous pouvez les modifier en fonctions de vos besoins.
+
+![Table client dans la base de données du service clients](./images/table_clients.png)
+
+![Table voiture dans la base de données du service voitures](./images/table_voiture.png)
 ---
